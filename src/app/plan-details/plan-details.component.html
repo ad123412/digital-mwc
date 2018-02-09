@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="jumbotron" style="padding-top: 0px;margin-top: 0px">
+    <table class="table table-responsive">
+      <tr *ngFor="let service of _plan.services">
+        <td class="text-muted"><h4 style="font-family: 'Ubuntu Light'">{{service.id}}</h4></td>
+        <td><img src="{{service.img}}" class="img-responsive" height="50" width="50"></td>
+        <td class="text-muted"><h4 style="font-family: 'Ubuntu Light'">{{service.name}}</h4></td>
+        <td><input class="form-control" disabled="true" value="{{service.cost}}"></td>
+        <td><input class="checkbox" type="checkbox" name="services"
+                   [(ngModel)]="service.checked" value="{{service.id}}"></td>
+      </tr>
+    </table>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6" style="text-align: left">
+          <button class="btn btn-info btn-lg" (click)="returnToComparison()"> Back </button>
+        </div>
+        <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6" style="text-align: right">
+          <button class="btn btn-primary btn-lg" (click)="addToCart()">Add to Cart ...</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

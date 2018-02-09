@@ -1,0 +1,38 @@
+<div class="container-fluid">
+
+  <div class="container-fluid" style="text-align: center;padding-top: 0px; margin-top: 0px;">
+    <h4 style="text-decoration: underline; margin-top: 0px;margin-bottom: 5px;padding-top: 0px;padding-bottom: 2px;" class="text-muted">Your Product Details</h4>
+  </div>
+
+  <div class="jumbotron" style="text-align: center; padding-top: 0px;margin-top: 0px;margin-bottom: 1px;padding-bottom: 0px">
+    <h4 class="text-primary" style="margin-bottom: 0px; margin-top: 2px;padding-top: 2px">{{checkedInPlan.name}}<sup>TM</sup></h4>
+    <p class="text-muted" style="font-size: smaller">Starting at less than</p>
+
+    <h4 style="margin-bottom: 0px;" class="text-primary"><strong>{{checkedInPlan.tariff[1].cost}}</strong></h4>
+    <p style="margin-bottom: 0px;" class="text-muted">per line for {{checkedInPlan.tariff[1].lines}} lines</p>
+    <p class="text-muted" style="margin-bottom: 0px;padding-bottom: 0px">{{checkedInPlan.tariff[0].cost}} for 1 line</p>
+  </div>
+
+  <div class="jumbotron" style="margin-top: 0px;padding-top: 0px">
+    <table class="table table-responsive">
+        <tr *ngFor="let service of checkedInServices">
+          <td class="text-muted"><h4 style="font-family: 'Ubuntu Light'">{{service.id}}</h4></td>
+          <td><img src="{{service.img}}" class="img-responsive" height="30" width="20"></td>
+          <td class="text-muted"><h4 style="font-family: 'Ubuntu Light'">{{service.name}}</h4></td>
+          <td><input class="form-control" disabled="true" value="{{service.cost}}"></td>
+        </tr>
+    </table>
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="text-align: left">
+        <button class="btn btn-info" (click)="navigateToPlanDetails()"> Back </button>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="text-align: center">
+        <button class="btn btn-primary">Proceed to Checkout</button>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="text-align: right">
+        <button class="btn btn-primary" [disabled]="!isAddingNewServicesRequired()">Add or Remove</button>
+      </div>
+    </div>
+  </div>
+
+</div>

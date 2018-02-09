@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Unlimited CHOICE",
+    "tariff" : [
+      {
+        "channel": "single",
+        "cost" : "$60/mo",
+        "lines": 1
+      },
+      {
+        "channel": "multiple",
+        "cost": "$40/mo",
+        "lines": 4
+      }
+    ],
+    "services" : [
+      {
+        "id": 1,
+        "img": "/image/television.jpg",
+        "name": "TV",
+        "cost": "$1.50",
+        "checked": true
+      },
+      {
+        "id": 2,
+        "img": "/image/video-icons.png",
+        "name": "Mobile Video",
+        "cost": "$1.50",
+        "checked": true
+      },
+      {
+        "id": 3,
+        "img": "/image/wirelessdevice.png",
+        "name": "Wireless Device",
+        "cost": "$1.50",
+        "checked": true
+      },
+      {
+        "id": 4,
+        "img": "/image/wirelesshomeservices.png",
+        "name": "Wireless Home Services",
+        "cost": "$1.50",
+        "checked": true
+      },
+      {
+        "id": 5,
+        "img": "/image/smartwatch.png",
+        "name": "Wearable Smart Device",
+        "cost": "$1.50",
+        "checked": true
+      },
+      {
+        "id": 6,
+        "img": "/image/music-note.png",
+        "name": "Song's title",
+        "cost": "$1.50",
+        "checked": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Unlimited PLUS",
+    "tariff" : [
+      {
+        "channel": "single",
+        "cost" : "$90/mo",
+        "lines": 1
+      },
+      {
+        "channel": "multiple",
+        "cost": "$60/mo",
+        "lines": 4
+      }
+    ],
+    "services" : [
+      {
+        "id": 1,
+        "img": "/image/television.jpg",
+        "name": "TV",
+        "cost": "$1.50",
+        "checked": true
+      },
+      {
+        "id": 2,
+        "img": "/image/video-icons.png",
+        "name": "Mobile Video",
+        "cost": "$1.50",
+        "checked": true
+      },
+      {
+        "id": 3,
+        "img": "/image/wirelessdevice.png",
+        "name": "Wireless Device",
+        "cost": "$1.50",
+        "checked": true
+      },
+      {
+        "id": 4,
+        "img": "/image/wirelesshomeservices.png",
+        "name": "Wireless Home Services",
+        "cost": "$1.50",
+        "checked": true
+      },
+      {
+        "id": 5,
+        "img": "/image/smartwatch.png",
+        "name": "Wearable Smart Device",
+        "cost": "$1.50",
+        "checked": true
+      },
+      {
+        "id": 6,
+        "img": "/image/music-note.png",
+        "name": "Song's title",
+        "cost": "$1.50",
+        "checked": true
+      }
+    ]
+  }
+]

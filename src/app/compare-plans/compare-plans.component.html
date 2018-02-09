@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div style="text-align: center;">
+    <h4 class="text-muted">Unlimited Choice</h4>
+    <h4 class="text-muted">With no overages Ever</h4>
+    <h4 class="text-info" style="font-family: Consolas"><strong>Compare unlimited plans and find the right one for you</strong></h4>
+  </div>
+  <div class="row">
+    <div *ngFor="let plan of plans" class="container-fluid col-lg-6 col-sm-6 col-md-6 col-xs-6" style="text-align: center">
+      <div class="jumbotron" style="margin-top: 0px;padding-top: 5px">
+
+        <h3 class="text-primary" style="margin-bottom: 0px">{{plan.name}}<sup>TM</sup></h3>
+        <p class="text-muted" style="font-size: smaller">Starting at less than</p>
+
+        <h2 style="margin-bottom: 0px;" class="text-primary"><strong>{{plan.tariff[1].cost}}</strong></h2>
+        <p style="margin-bottom: 0px;" class="text-muted">per line for {{plan.tariff[1].lines}} lines</p>
+        <p class="text-muted">{{plan.tariff[0].cost}} for 1 line</p>
+
+        <p class="text-muted" style="font-size: smaller; margin-bottom: 0px">Prices after discount with</p>
+        <p class="text-muted" style="font-size: smaller">Autoplay and paperless billing</p>
+
+        <p><a class="btn btn-info btn-lg" href="#" role="button">For more info ...</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button" (click)="showPlanDetails(plan.id)">Shop here ...</a></p>
+
+        <p class="text-muted" style="font-size: small">Already an existing Customer?
+          <a href="#"><strong>Log in</strong></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
