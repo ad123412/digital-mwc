@@ -30,12 +30,16 @@ export class PlanServiceService {
 
   getPlanDetails(id: number) {
 
+    console.log('inside getPlanDetails >>>>>>>> ' + id);
     return this._http.get('/json/plans.json')
       .map((response: Response) => {
+          console.log(';;;;;;;;;;;;;;;;;;;;;;;;;;;');
           const plans = response.json();
           let p;
           for (const plan of plans) {
+            console.log('1>>>>>>>>>>>>>');
             if (plan.id === +id) {
+              console.log('2>>>>>>>>>>>>>');
               p = plan;
               break;
             }

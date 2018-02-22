@@ -12,24 +12,35 @@ export class ShoppingCartDetailsComponent implements OnInit, OnDestroy {
 
   checkedInPlan: any;
   subscription: Subscription;
+  activatedServicessubscription: Subscription;
   checkedInServices: any[] = [];
+  allServices: any;
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+    this.activatedServicessubscription.unsubscribe();
   }
 
   constructor(private sessionServices: SessionServiceService,
               private _route: Router) {
 
-    this.subscription = this.sessionServices.getPlan().subscribe((plan) => {
-
-      this.checkedInPlan = plan;
-      for (const service of plan.services) {
-        if ( service.checked) {
-          this.checkedInServices.push(service);
+    this.activatedServicessubscription = this.sessionServices.getActivatedPlan()
+      .subscribe(
+        (activatedServices: any) => {
+          this.allServices = activatedServices;
+          for (const service of activatedServices.services) {
+            if (service.checked) {
+              this.checkedInServices.push(service);
+            }
+          }
         }
-      }
-    });
+      );
+
+    this.subscription = this.sessionServices.getPlan()
+      .subscribe((plan) => {
+          this.checkedInPlan = plan;
+        }
+      );
   }
 
   ngOnInit() {}

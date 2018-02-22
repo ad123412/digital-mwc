@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="jumbotron" style="padding-top: 0px;margin-top: 0px">
     <table class="table table-responsive">
-      <tr *ngFor="let service of _plan.services">
+      <tr *ngFor="let service of _activatedPlanServices.services">
         <td class="text-muted"><h4 style="font-family: 'Ubuntu Light'">{{service.id}}</h4></td>
         <td><img src="{{service.img}}" class="img-responsive" height="50" width="50"></td>
         <td class="text-muted"><h4 style="font-family: 'Ubuntu Light'">{{service.name}}</h4></td>

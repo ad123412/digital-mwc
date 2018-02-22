@@ -14,9 +14,10 @@ export class PlanDetailsComponent implements OnInit, OnDestroy {
   _routeParamSubscription: Subscription;
   _planId: number;
   _plan: any;
+  _activatedPlanServices: any;
 
   ngOnDestroy(): void {
-    //this._routeParamSubscription.unsubscribe();
+     this._routeParamSubscription.unsubscribe();
   }
 
   constructor(private _route: Router,
@@ -26,32 +27,31 @@ export class PlanDetailsComponent implements OnInit, OnDestroy {
 
     console.log('loading plan details comp ...');
 
-    this._activatedRoute.queryParams.subscribe(
-      (qparams: Params) => {
-
-        const from = qparams['from'];
-        console.log('from >> ' + from);
-        if (from && from === 'compare') {
-          this._routeParamSubscription = this._activatedRoute.params.subscribe((params: Params) => {
-            this._planId = params['id'];
-            if (!(this._plan && this._planId === this._plan.id)) {
+    this._routeParamSubscription = this._activatedRoute.params.subscribe(
+      (params: Params) => {
+        this._planId = params['id'];
+        this._activatedRoute.queryParams.subscribe(
+          (qparams: Params) => {
+            const from = qparams['from'];
+            if (from && from === 'compare') {
               this.planService.getPlanVasDetails(this._planId).subscribe(
                 (data) => {
-                  if (!(this._plan && this._plan.id === data.id)) {
-                    this._plan = data;
-                    this.planService.setActivatedPlan(this._plan);
-                  }
+                  this.sessionService.setActivatedPlan(data);
                 }
               );
+            } else {
+
             }
-          });
-        } else {
-          this._plan = this.planService.getActivatedPlan();
-        }
+          }
+        );
       }
     );
 
-
+    this.sessionService.getActivatedPlan().subscribe(
+      (activatedPlanServices: any) => {
+        this._activatedPlanServices = activatedPlanServices;
+      }
+    );
   }
 
   ngOnInit() {}
@@ -62,8 +62,14 @@ export class PlanDetailsComponent implements OnInit, OnDestroy {
 
   addToCart() {
 
-    this.sessionService.addPlan(this._plan);
-    this._route.navigate(['cart']);
+    this.planService.getPlanDetails(this._planId)
+      .subscribe((data) => {
+          this._plan = data;
+          this.sessionService.addPlan(data);
+          this.sessionService.setActivatedPlan(this._activatedPlanServices);
+          this._route.navigate(['cart']);
+        }
+      );
   }
 
 }

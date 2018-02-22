@@ -6,9 +6,8 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 @Injectable()
 export class SessionServiceService {
 
-  constructor() { console.log('session service created >>>>>>>>>>>>>>>>'); }
-
   private subject = new BehaviorSubject<any>(undefined);
+  private activatedPlanSubject = new BehaviorSubject<any>(undefined);
 
   addPlan(plan: any) {
     this.subject.next(plan);
@@ -17,4 +16,13 @@ export class SessionServiceService {
   getPlan(): Observable<any> {
     return this.subject.asObservable();
   }
+
+  setActivatedPlan(plan: any) {
+    this.activatedPlanSubject.next(plan);
+  }
+
+  getActivatedPlan(): Observable<any> {
+    return this.activatedPlanSubject.asObservable();
+  }
+
 }
