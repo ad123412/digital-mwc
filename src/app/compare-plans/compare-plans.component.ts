@@ -26,7 +26,7 @@ export class ComparePlansComponent implements OnInit {
 
   showPlanDetails(id: number): void {
 
-    this._route.navigate(['plan', id]);
+    this._route.navigate(['plan', id], {queryParams: {'from': 'compare'}});
   }
 
 }
